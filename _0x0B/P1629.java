@@ -17,11 +17,13 @@ public class P1629 {
         System.out.println(recursive(a, b, c));
     }
 
-    static int recursive(int a, int b, int c) {
+    static long recursive(int a, int b, int c) {
         if (b == 1) return a % c;
-        int rest = recursive(a, b / 2, c);
-        rest = rest * rest % c;
+
+        long rest = recursive(a, b / 2, c);
+        rest = (rest * rest) % c;
+
         if (b % 2 == 0) return rest;
-        return rest * a % c;
+        return (rest * a) % c;
     }
 }
